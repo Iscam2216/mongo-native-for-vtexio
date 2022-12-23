@@ -1,20 +1,20 @@
 {
-  "name": "mongodb",
-  "version": "0.0.1",
-  "description": "MongoDB driver with socksv5 for Node.js and Vtex IO",
+  "name": "mongodb-native-socksv5",
+  "version": "0.0.1-beta",
+  "description": "The official MongoDB driver for Node.js",
   "main": "lib/index.js",
   "files": [
     "lib",
     "src",
     "etc/prepare.js",
-    "mongodb.d.ts",
-    "mongodb.ts3-4.d.ts"
+    "mongodb-native-socksv5.d.ts",
+    "mongodb-native-socksv5.ts3-4.d.ts"
   ],
-  "types": "mongodb.d.ts",
+  "types": "mongodb-native-socksv5.d.ts",
   "typesVersions": {
     "<=4.0.2": {
-      "mongodb.d.ts": [
-        "mongodb.ts3-4.d.ts"
+      "mongodb-native-socksv5.d.ts": [
+        "mongodb-native-socksv5.ts3-4.d.ts"
       ]
     }
   },
@@ -96,14 +96,14 @@
   "scripts": {
     "build:evergreen": "node .evergreen/generate_evergreen_tasks.js",
     "build:ts": "rimraf lib && ./node_modules/typescript/bin/tsc",
-    "build:dts": "npm run build:ts && api-extractor run && rimraf 'lib/**/*.d.ts*' && downlevel-dts mongodb.d.ts mongodb.ts3-4.d.ts",
+    "build:dts": "npm run build:ts && api-extractor run && rimraf 'lib/**/*.d.ts*' && downlevel-dts mongodb-native-socksv5.d.ts mongodb-native-socksv5.ts3-4.d.ts",
     "build:docs": "typedoc",
     "check:bench": "node test/benchmarks/driverBench",
     "check:coverage": "nyc npm run test:all",
     "check:lint": "npm run build:dts && npm run check:dts && npm run check:eslint && npm run check:tsd",
     "check:eslint": "eslint -v && eslint --max-warnings=0 --ext '.js,.ts' src test",
     "check:tsd": "tsd --version && tsd",
-    "check:dts": "./node_modules/typescript/bin/tsc --noEmit mongodb.d.ts && tsd",
+    "check:dts": "./node_modules/typescript/bin/tsc --noEmit mongodb-native-socksv5.d.ts && tsd",
     "check:test": "mocha --file test/tools/runner --recursive test/functional test/integration",
     "check:unit": "mocha --recursive test/unit/",
     "check:ts": "./node_modules/typescript/bin/tsc -v && ./node_modules/typescript/bin/tsc --noEmit",
