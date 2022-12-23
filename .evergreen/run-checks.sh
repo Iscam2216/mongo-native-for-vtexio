@@ -28,8 +28,8 @@ echo "import * as mdb from '.'" > file.ts && $TSC --noEmit --traceResolution fil
 
 npm i --no-save typescript@4.1.6
 echo "Typescript $($TSC -v)"
-$TSC --noEmit mongodb.ts34.d.ts
+$TSC --noEmit mongodb.ts3-4.d.ts
 # check that resolution uses the downleveled types
-echo "import * as mdb from '.'" > file.ts && $TSC --noEmit --traceResolution file.ts | grep 'mongodb.ts34.d.ts' && rm file.ts
+echo "import * as mdb from '.'" > file.ts && $TSC --noEmit --traceResolution file.ts | grep 'mongodb.ts3-4.d.ts' && rm file.ts
 
 rm -f file.ts
