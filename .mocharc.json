@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/mocharc.json",
+  "extension": [
+    "js",
+    "ts"
+  ],
+  "require": [
+    "source-map-support/register",
+    "ts-node/register",
+    "test/tools/runner/chai-addons"
+  ],
+  "ui": "test/tools/runner/metadata_ui.js",
+  "recursive": true,
+  "timeout": 60000,
+  "reporter": "test/tools/reporter/mongodb_reporter.js",
+  "color": true
+}
