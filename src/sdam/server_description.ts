@@ -180,7 +180,7 @@ export class ServerDescription {
   }
 
   /**
-   * Determines if another `ServerDescription` is equal to this one per the rules defined
+   * Determines if another ServerDescription is equal to this one per the rules defined
    * in the {@link https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#serverdescription|SDAM spec}
    */
   equals(other: ServerDescription): boolean {

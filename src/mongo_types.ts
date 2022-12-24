@@ -451,9 +451,9 @@ export class CancellationToken extends TypedEventEmitter<{ cancel(): void }> {}
 export type Join<T extends unknown[], D extends string> = T extends []
   ? ''
   : T extends [string | number]
-  ? `${T[0]}`
+  ? string
   : T extends [string | number, ...infer R]
-  ? `${T[0]}${D}${Join<R, D>}`
+  ? string
   : string;
 
 /** @public */
@@ -461,19 +461,9 @@ export type PropertyType<Type, Property extends string> = string extends Propert
   ? unknown
   : Property extends keyof Type
   ? Type[Property]
-  : Property extends `${number}`
+  : Property extends string
   ? Type extends ReadonlyArray<infer ArrayType>
     ? ArrayType
-    : unknown
-  : Property extends `${infer Key}.${infer Rest}`
-  ? Key extends `${number}`
-    ? Type extends ReadonlyArray<infer ArrayType>
-      ? PropertyType<ArrayType, Rest>
-      : unknown
-    : Key extends keyof Type
-    ? Type[Key] extends Map<string, infer MapType>
-      ? MapType
-      : PropertyType<Type[Key], Rest>
     : unknown
   : unknown;
 
